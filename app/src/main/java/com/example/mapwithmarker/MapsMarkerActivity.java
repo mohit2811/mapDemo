@@ -1,7 +1,13 @@
 package com.example.mapwithmarker;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -55,9 +61,9 @@ public class MapsMarkerActivity extends AppCompatActivity
         Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         double longitude = location.getLongitude();
         double latitude = location.getLatitude();
-        LatLng currentLocation = new LatLng(latitude, longitude);
+        LatLng currentLocation = new LatLng(31.633980, 74.872261);
         googleMap.addMarker(new MarkerOptions().position(currentLocation)
-                .title("Marker in Sydney"));
+                .title("Marker"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
     }
 }
